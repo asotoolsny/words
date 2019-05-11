@@ -1,6 +1,7 @@
 import re
 
 import urllib3
+from blingfire import *
 
 import charts
 
@@ -47,7 +48,7 @@ book_text_url = "https://www.gutenberg.org/files/2600/2600-0.txt"
 book_text = download_url_as_text(book_text_url)
 
 # extract words by splitting the text, re.sub() is a regex method of splitting into words
-all_words = re.sub("[^\w]", " ",  book_text).split()
+all_words = re.sub("[^\w]", " ",  text_to_words(book_text)).split()
 
 # convert all words to lowercase, so we can count all cases ("The" and "the" is the same word)
 all_words = [word.lower() for word in all_words]
